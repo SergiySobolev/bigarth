@@ -2,10 +2,10 @@ import unittest
 
 from parameterized import parameterized
 
-from com.sbk.arth import quo_rem, add
+from com.sbk.arth import quo_rem, add, mul
 
 
-class TestCbcDecrypt(unittest.TestCase):
+class TestArth(unittest.TestCase):
 
     @parameterized.expand([
         ['1', 7, 5, 1, 2],
@@ -24,3 +24,10 @@ class TestCbcDecrypt(unittest.TestCase):
     ])
     def test_add(self, name,  a, b, e):
         self.assertTrue((add(a, b) == e).all())
+
+    @parameterized.expand([
+        ['1', [2,2], [3,3], [7, 2, 6]]
+
+    ])
+    def test_mul(self, name, a, b, e):
+        self.assertTrue((mul(a, b) == e).all())
